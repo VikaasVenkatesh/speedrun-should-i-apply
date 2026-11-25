@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "record-demo": "node scripts/record-demo.mjs docs/demo.gif docs/sample-resume.pdf"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.14.0",
@@ -27,6 +28,9 @@
     "@types/react-dom": "^19.3.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.4.6",
+    "gifenc": "^1.0.3",
+    "playwright-core": "^1.65.1",
+    "pngjs": "^7.0.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3"
   }
