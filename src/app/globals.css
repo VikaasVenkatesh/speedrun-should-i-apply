@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f7f7f4;
+  --surface: #ffffff;
+  --surface-2: #f1f1ec;
+  --ink: #111110;
+  --ink-2: #4a4a46;
+  --ink-3: #8a8a83;
+  --line: #e4e4dd;
+  --accent: #ff5a1f;
+  --apply: #0f9d58;
+  --apply-bg: #e7f6ee;
+  --stretch: #c27803;
+  --stretch-bg: #fdf3dc;
+  --skip: #8a8a83;
+  --skip-bg: #efefea;
+  --danger: #d4380d;
+  --danger-bg: #fdece6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d0d0c;
+    --surface: #161614;
+    --surface-2: #1e1e1b;
+    --ink: #f2f2ee;
+    --ink-2: #b9b9b2;
+    --ink-3: #7c7c75;
+    --line: #2a2a26;
+    --accent: #ff6a33;
+    --apply: #3ccf86;
+    --apply-bg: #10261b;
+    --stretch: #f0b03f;
+    --stretch-bg: #2a2110;
+    --skip: #8d8d86;
+    --skip-bg: #1f1f1c;
+    --danger: #ff7a52;
+    --danger-bg: #2c1610;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-apply: var(--apply);
+  --color-apply-bg: var(--apply-bg);
+  --color-stretch: var(--stretch);
+  --color-stretch-bg: var(--stretch-bg);
+  --color-skip: var(--skip);
+  --color-skip-bg: var(--skip-bg);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background: var(--bg);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+.shimmer {
+  background: linear-gradient(90deg, var(--surface-2) 0%, color-mix(in oklab, var(--surface-2) 40%, var(--surface)) 50%, var(--surface-2) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+.grid-bg {
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at top, black 20%, transparent 70%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
